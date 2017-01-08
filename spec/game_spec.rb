@@ -60,28 +60,28 @@ describe Game do
   end
 
 
-  describe '#establish_pile' do
-    let(:pile) { double("pile", :class => Pile) }
-    allow(deck).to receive(:take)
-    it 'creates pile object with top card from deck' do
-      expect(game.pile.class).to be(Pile)
-    end
-    # it 'takes a card from deck' do
-    #   expect(deck).to receive(:take)
-    #   game.establish_pile
-    # end
-    # context 'When an 8 is drawn' do
-    #   let(:card) { double("card", :value => :eight )}
-    #   allow(deck).to receive(:return_eight).with(any_args)
-    #   allow(deck).to receive(:take).and_return(card)
-    #   it 'if 8 is drawn, deck#return_eight is called' do
-    #
-    #     expect(deck).to receive(:return_eight)
-    #
-    #   end
-    #   it 'takes the next card if the last flipped was an 8'
-    # end
-  end
+  # describe '#establish_pile' do
+  #   let(:pile) { double("pile", :class => Pile) }
+  #   allow(deck).to receive(:take)
+  #   it 'creates pile object with top card from deck' do
+  #     expect(game.pile.class).to be(Pile)
+  #   end
+  #   # it 'takes a card from deck' do
+  #   #   expect(deck).to receive(:take)
+  #   #   game.establish_pile
+  #   # end
+  #   # context 'When an 8 is drawn' do
+  #   #   let(:card) { double("card", :value => :eight )}
+  #   #   allow(deck).to receive(:return_eight).with(any_args)
+  #   #   allow(deck).to receive(:take).and_return(card)
+  #   #   it 'if 8 is drawn, deck#return_eight is called' do
+  #   #
+  #   #     expect(deck).to receive(:return_eight)
+  #   #
+  #   #   end
+  #   #   it 'takes the next card if the last flipped was an 8'
+  #   # end
+  # end
 
   describe "#play_turn" do
     it 'asks each player for played cards'

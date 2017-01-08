@@ -117,11 +117,12 @@ describe Deck do
     let(:deck_1) { Deck.new(cards_1) }
     let(:deck_2) { Deck.new(cards_2) }
     it 'calls #return_eight if top_card is an eight' do
+
       expect(deck_1).to receive(:return_eight).with(any_args)
       deck_1.deal_pile
-      expect(deck.top_card.value).to be(:six)
+      expect(deck_1.top_card).to eq(card_2)
 
-      expect(deck.count).to be(4)
+      expect(deck_1.count).to be(4)
     end
     it 'returns a non-eight card' do
       #expect(deck_2).not_to receive(:return_eight).with(any_args)

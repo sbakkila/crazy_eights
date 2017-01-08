@@ -3,9 +3,10 @@ require_relative "card.rb"
 require 'byebug'
 
 class Deck
-  attr_reader :cards, :top_card
+  attr_accessor :cards
 
   def self.all_cards
+    # debugger
     cards = []
     Card.suits.each do |suit|
       Card.values.each do |value|
@@ -21,9 +22,15 @@ class Deck
     new_deck
   end
 
-  def initialize(cards = Deck.all_cards)
+  def initialize(cards = nil)
+
+    cards ||=  Deck.all_cards
     @cards = cards
-    @top_card = @cards[0]
+
+  end
+
+  def top_card
+    cards[0]
   end
 
   def take
@@ -49,23 +56,14 @@ class Deck
   end
 
   def deal_pile
-    pile_card = take
-    #debugger
-    if pile_card.value == :eight
-      while pile_card.value == :eight
-        self.return_eight(pile_card)
-        debugger
-        pile_card = take
-      end
-    end
-    debugger
-    pile_card
+    return_eight(top_card) while top_card.value == :eight
+    val = cards.shift
+    @DiscardPile = DiscardPile.new(val)
   end
 
   def return_eight(card)
-    debugger
     mid_point = count / 2
-    @cards = @cards[0...mid_point] + [card] + @cards[mid_point..-1]
+    self.cards = @cards[0...mid_point] + [card] + @cards[mid_point..-1]
   end
 
   def [](idx)

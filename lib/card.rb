@@ -44,7 +44,7 @@ class Card
     VALUE_STRINGS[value] + SUIT_STRINGS[suit]
   end
 
-  def ==(other_card)
+  def matching(other_card)
     (self.suit == other_card.suit) || (self.value == other_card.value)
   end
 

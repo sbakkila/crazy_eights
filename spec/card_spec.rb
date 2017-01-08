@@ -21,11 +21,11 @@ describe Card do
     end
   end
 
-  describe '#==(other_card)' do
+  describe '#matching(other_card)' do
     it 'returns truthy value if card and other card have same suit or value' do
-      expect(card == same_suit_card).to be_truthy
-      expect(card == same_value_card).to be_truthy
-      expect(card == non_matching_card).to be_falsey
+      expect(card.matching(same_suit_card)).to be_truthy
+      expect(card.matching(same_value_card)).to be_truthy
+      expect(card.matching(non_matching_card)).to be_falsey
     end
   end
 
